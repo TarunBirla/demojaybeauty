@@ -211,7 +211,7 @@
         </div>
     </div>
     @if($visitorsList->hasPages())
-        <div class="card-footer bg-white border-0 py-3">
+        <div class="card-footer bg-white border-top py-3">
             {{ $visitorsList->links() }}
         </div>
     @endif

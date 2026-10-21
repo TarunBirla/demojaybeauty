@@ -24,6 +24,78 @@
 
     <title>@yield('title', 'Jays Beauty - A World Class Beauty Spa in London')</title>
 
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="@yield('meta_description', 'Jay\'s Beauty is a premier beauty spa in Hounslow, London offering luxury facials, hydra facials, microdermabrasion, microneedling, waxing, threading, lash lift, and semi-permanent makeup.')">
+    <meta name="robots" content="@yield('meta_robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1')">
+    <link rel="canonical" href="@yield('canonical_url', url()->current())">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="@yield('title', 'Jays Beauty - A World Class Beauty Spa in London')">
+    <meta property="og:description" content="@yield('meta_description', 'Jay\'s Beauty is a premier beauty spa in Hounslow, London offering luxury facials, hydra facials, waxing, and beauty treatments.')">
+    <meta property="og:image" content="@yield('meta_image', asset('img/Contact.jpeg'))">
+    <meta property="og:site_name" content="Jay's Beauty">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ url()->current() }}">
+    <meta name="twitter:title" content="@yield('title', 'Jays Beauty - A World Class Beauty Spa in London')">
+    <meta name="twitter:description" content="@yield('meta_description', 'Jay\'s Beauty is a premier beauty spa in Hounslow, London offering luxury facials, hydra facials, waxing, and beauty treatments.')">
+    <meta name="twitter:image" content="@yield('meta_image', asset('img/Contact.jpeg'))">
+
+    <!-- JSON-LD Structured Data for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BeautySalon",
+          "@id": "https://www.jaysbeauty.co.uk/#beautysalon",
+          "name": "Jay's Beauty",
+          "url": "https://www.jaysbeauty.co.uk/",
+          "logo": "{{ asset('img/logo.png') }}",
+          "image": "{{ asset('img/Contact.jpeg') }}",
+          "description": "A World Class Beauty Spa in Hounslow, London offering luxury facials, hydra facials, microdermabrasion, waxing, massages, lashes, and semi-permanent makeup.",
+          "telephone": "07399001499",
+          "email": "info@jaysbeauty.co.uk",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Hounslow Market, 281-287 High Street",
+            "addressLocality": "Hounslow",
+            "addressRegion": "Greater London",
+            "postalCode": "TW3 1EJ",
+            "addressCountry": "GB"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              "opens": "10:00",
+              "closes": "18:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Sunday",
+              "opens": "11:00",
+              "closes": "17:00"
+            }
+          ],
+          "priceRange": "££"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.jaysbeauty.co.uk/#website",
+          "url": "https://www.jaysbeauty.co.uk/",
+          "name": "Jay's Beauty",
+          "publisher": {
+            "@id": "https://www.jaysbeauty.co.uk/#beautysalon"
+          }
+        }
+      ]
+    }
+    </script>
+
     <style>
         img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }
         .banner1 { background-image: url("{{ asset('img/banner1.jpg') }}"); }
@@ -51,6 +123,51 @@
         .mobile-menu .navbar-menu li a.active {
             color: #d4a373 !important;
             font-weight: 700;
+        }
+
+        /* Clean Pagination Styles */
+        .pagination {
+            display: flex;
+            padding-left: 0;
+            list-style: none;
+            gap: 6px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 25px;
+            margin-bottom: 0;
+        }
+        .pagination .page-item .page-link {
+            color: #333;
+            border-radius: 8px !important;
+            border: 1px solid #ebd3be;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: none;
+            background: #ffffff;
+        }
+        .pagination .page-item .page-link:hover {
+            color: #d4a373;
+            background-color: #fffaf5;
+            border-color: #d4a373;
+        }
+        .pagination .page-item.active .page-link {
+            background-color: #d4a373;
+            border-color: #d4a373;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .pagination .page-item.disabled .page-link {
+            color: #aaa;
+            background-color: #fbfbfb;
+            border-color: #ebd3be;
+            opacity: 0.6;
+        }
+        .pagination svg {
+            width: 14px !important;
+            height: 14px !important;
+            vertical-align: middle;
         }
     </style>
     @stack('styles')

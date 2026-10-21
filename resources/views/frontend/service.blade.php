@@ -22,7 +22,7 @@
 <div class="section section-padding-02" style="padding-top: 50px;">
     <div class="container">
         <div class="section-title text-center">
-            <h2 class="title">Our Services</h2>
+            <h1 class="title">Our Services</h1>
             <p>&nbsp;</p>
         </div>
         <div class="blog-wrapper">

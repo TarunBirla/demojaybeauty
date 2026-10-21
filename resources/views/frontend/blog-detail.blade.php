@@ -1,6 +1,9 @@
 @extends('frontend.layouts.app')
 
 @section('title', $blog->title . ' - Jay\'s Beauty London')
+@section('meta_description', Str::limit(strip_tags($blog->description), 155))
+@section('meta_image', $blog->image ? asset($blog->image) : asset('img/Contact.jpeg'))
+@section('og_type', 'article')
 
 @section('content')
 <div class="section slider-area slider-active">

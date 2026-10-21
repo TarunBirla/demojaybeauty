@@ -55,7 +55,7 @@
                    <div class="about-content" data-aos="fade-up" data-aos-delay="200">
                        <div class="section-title">
                            <h6 class="sub-title">WELCOME TO Jays BEAUTY</h6>
-                           <h2 class="title">The Best Beauty Spa in Hounslow</h2>
+                           <h1 class="title">The Best Beauty Spa in Hounslow</h1>
                        </div>
                        <p>Jay’s Beauty offers a wide range of professional treatments including facials, microdermabrasion, hydra facials, micro-needling, semi-permanent makeup, hair styling, makeup, and henna. With expert care, relaxing services, and personalised skin treatments, Jay’s Beauty provides a welcoming experience designed to enhance natural beauty and leave clients feeling refreshed and confident.</p>
                        <a href="{{ route('about') }}" class="btn btn-primary btn-hover-dark">Read More</a>

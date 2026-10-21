@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-info">
-                        <h3 class="title">Contact Information</h3>
+                        <h1 class="title">Contact Jay's Beauty</h1>
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="single-info">

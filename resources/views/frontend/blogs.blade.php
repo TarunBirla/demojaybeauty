@@ -23,7 +23,7 @@
     <div class="container">
         <div class="section-title text-center mb-5">
             <h6 class="sub-title">BEAUTY INSIGHTS & ADVICE</h6>
-            <h2 class="title">Our Latest Articles & Spa Tips</h2>
+            <h1 class="title">Our Latest Articles & Spa Tips</h1>
             <p class="text-muted">Discover the secret to healthy skin, lash retention, and professional aesthetic treatments.</p>
         </div>
 

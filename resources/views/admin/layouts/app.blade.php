@@ -154,6 +154,75 @@
         .kpi-purple { background: rgba(111, 66, 193, 0.12); color: #6f42c1; }
         .badge-active { background: #d1e7dd; color: #0f5132; }
         .badge-inactive { background: #f8d7da; color: #842029; }
+
+        /* Custom Clean Pagination Styles */
+        .pagination {
+            margin-bottom: 0;
+            gap: 4px;
+            align-items: center;
+        }
+        .pagination .page-item .page-link {
+            color: #475569;
+            border-radius: 8px !important;
+            border: 1px solid #e2e8f0;
+            padding: 6px 13px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: none;
+            background: #ffffff;
+            line-height: 1.5;
+        }
+        .pagination .page-item .page-link:hover {
+            color: #111;
+            background-color: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+        .pagination .page-item.active .page-link {
+            background-color: var(--primary-gold);
+            border-color: var(--primary-gold);
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 2px 6px rgba(197, 157, 95, 0.35);
+        }
+        .pagination .page-item.disabled .page-link {
+            color: #94a3b8;
+            background-color: #f8fafc;
+            border-color: #e2e8f0;
+            opacity: 0.7;
+        }
+        .pagination svg {
+            width: 14px !important;
+            height: 14px !important;
+            vertical-align: middle;
+        }
+        .card-footer nav p {
+            margin-bottom: 0;
+            color: #64748b !important;
+            font-size: 13px;
+        }
+        .card-footer nav {
+            align-items: center;
+        }
+        .pagination-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            width: 100%;
+        }
+        .pagination-wrapper .pagination-info {
+            color: #64748b;
+            font-size: 13px;
+        }
+        @media (max-width: 576px) {
+            .pagination-wrapper {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
     </style>
     @stack('styles')
 </head>

@@ -32,7 +32,7 @@
                    <div class="about-content" data-aos="fade-up" data-aos-delay="200">
                        <div class="section-title">
                            <h6 class="sub-title">WELCOME TO JAYS BEAUTY</h6>
-                           <h2 class="title">Jigna Ladwa</h2>
+                           <h1 class="title">Jigna Ladwa</h1>
                        </div>
                        <p>Jigna Ladwa is a highly skilled beautician and spa specialist at Jay’s Beauty, known for her gentle approach, precision, and deep expertise in skincare and relaxation treatments. With years of professional experience, she delivers personalised facials, spa therapies, and beauty services that leave clients feeling refreshed, confident, and beautifully cared for.</p>
                        <a href="{{ route('service') }}" class="btn btn-primary btn-hover-dark">Our Services</a>
