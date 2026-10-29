@@ -74,13 +74,13 @@ class TrackVisitor
                 ]
             );
 
-            // 2. Prevent duplicate page view: Check if this visitor already viewed this page today
-            $alreadyViewed = PageView::where('visitor_id', $visitor->id)
+            // 2. Record journey step (Debounce 30s for the immediate same page to prevent F5 reload spam, while logging every page visited)
+            $recentSamePage = PageView::where('visitor_id', $visitor->id)
                 ->where('url', $url)
-                ->whereDate('created_at', $today)
+                ->where('created_at', '>=', now()->subSeconds(30))
                 ->exists();
 
-            if (!$alreadyViewed) {
+            if (!$recentSamePage) {
                 PageView::create([
                     'visitor_id' => $visitor->id,
                     'ip_address' => $ip,
@@ -91,8 +91,8 @@ class TrackVisitor
 
                 if (!$visitor->wasRecentlyCreated) {
                     $visitor->increment('views_count');
-                    $visitor->update(['last_activity' => now()]);
                 }
+                $visitor->update(['last_activity' => now()]);
             } else {
                 $visitor->update(['last_activity' => now()]);
             }

@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\ContactController;
 
 // Safe Database Migration & Table Setup Route (Does NOT delete existing data)
 Route::get('/setup-database', [SetupController::class, 'setup'])->name('setup.database');
+Route::get('/migrate-tables', [SetupController::class, 'setup'])->name('setup.migrate');
+Route::get('/run-migrations', [SetupController::class, 'setup'])->name('setup.run');
 
 // Public Frontend Routes (100% Same UI as HTML Template)
 Route::get('/', [FrontendController::class, 'index'])->name('home');
@@ -43,6 +45,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     
     // Analytics & Visitor Tab
     Route::get('/analytics', [DashboardController::class, 'analytics'])->name('analytics');
+    Route::get('/analytics/visitor-journey/{visitor}', [DashboardController::class, 'visitorJourney'])->name('analytics.journey');
     
     // Blog Management
     Route::resource('blogs', BlogController::class);

@@ -137,4 +137,49 @@ class DashboardController extends Controller
             'totalPageHits'
         ));
     }
+
+    public function visitorJourney(Visitor $visitor)
+    {
+        // Get all page views for this visitor, ordered chronologically
+        $journey = PageView::where('visitor_id', $visitor->id)
+            ->orderBy('created_at', 'asc')
+            ->get();
+
+        if ($journey->isEmpty()) {
+            $journey = PageView::where('ip_address', $visitor->ip_address)
+                ->orderBy('created_at', 'asc')
+                ->get();
+        }
+
+        $firstVisit = $journey->first();
+        $lastVisit = $journey->last();
+        $duration = ($firstVisit && $lastVisit && $journey->count() > 1)
+            ? $firstVisit->created_at->diffForHumans($lastVisit->created_at, true)
+            : 'Single page visit';
+
+        return response()->json([
+            'success' => true,
+            'visitor' => [
+                'id' => $visitor->id,
+                'ip_address' => $visitor->ip_address,
+                'browser' => $visitor->browser ?? 'Unknown',
+                'device' => $visitor->device ?? 'Desktop',
+                'os' => $visitor->os ?? 'Unknown',
+                'visit_date' => $visitor->visit_date ? $visitor->visit_date->format('d M, Y') : $visitor->created_at->format('d M, Y'),
+                'total_views' => $journey->count(),
+                'duration' => $duration,
+            ],
+            'journey' => $journey->map(function ($pv, $index) {
+                return [
+                    'step' => $index + 1,
+                    'page_name' => $pv->page_name ?: 'Web Page',
+                    'url' => $pv->url,
+                    'referer' => $pv->referer ?: 'Direct / Search',
+                    'time' => $pv->created_at ? $pv->created_at->format('h:i:s A') : '',
+                    'date' => $pv->created_at ? $pv->created_at->format('d M, Y') : '',
+                    'human_time' => $pv->created_at ? $pv->created_at->diffForHumans() : '',
+                ];
+            }),
+        ]);
+    }
 }
