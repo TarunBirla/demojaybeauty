@@ -24,27 +24,47 @@
 
     <title>@yield('title', 'Jays Beauty - A World Class Beauty Spa in London')</title>
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="@yield('meta_description', 'Jay\'s Beauty is a premier beauty spa in Hounslow, London offering luxury facials, hydra facials, microdermabrasion, microneedling, waxing, threading, lash lift, and semi-permanent makeup.')">
+    <!-- SEO Meta Tags (Strictly Under 160 characters) -->
+    <meta name="description" content="@yield('meta_description', 'Premier beauty spa in Hounslow, London. Expert facials, hydra facials, waxing, threading, lash lifts and aesthetic care. Book your appointment today!')">
     <meta name="robots" content="@yield('meta_robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1')">
     <link rel="canonical" href="@yield('canonical_url', url()->current())">
+    <meta name="author" content="Jay's Beauty">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="Global">
+
+    <!-- GEO & Local SEO Meta Tags -->
+    <meta name="geo.region" content="GB-ENG">
+    <meta name="geo.placename" content="Hounslow, London">
+    <meta name="geo.position" content="51.4688;-0.3622">
+    <meta name="ICBM" content="51.4688, -0.3622">
+    <meta name="city" content="Hounslow">
+    <meta name="country" content="United Kingdom">
+
+    <!-- ARO (Answer Retrieval & AI Engine Optimization) -->
+    <meta name="keywords" content="beauty salon Hounslow, beauty spa London, hydra facial London, microdermabrasion Hounslow, waxing salon London, eyelash lift Hounslow, threading Hounslow, massage spa London, Jigna Ladwa">
+    <meta name="DC.title" content="Jay's Beauty - World Class Beauty Spa in Hounslow, London">
+    <meta name="DC.creator" content="Jay's Beauty">
+    <meta name="DC.subject" content="Beauty Salon, Spa, Facials, Skincare, Waxing, Threading, Aesthetics">
+    <meta name="DC.description" content="Premier beauty spa in Hounslow, London. Expert facials, hydra facials, waxing, threading, lash lifts & aesthetic care. Book your appointment today!">
+    <meta name="DC.coverage" content="Hounslow, London, United Kingdom">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="@yield('og_type', 'website')">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="@yield('title', 'Jays Beauty - A World Class Beauty Spa in London')">
-    <meta property="og:description" content="@yield('meta_description', 'Jay\'s Beauty is a premier beauty spa in Hounslow, London offering luxury facials, hydra facials, waxing, and beauty treatments.')">
+    <meta property="og:description" content="@yield('meta_description', 'Premier beauty spa in Hounslow, London. Expert facials, hydra facials, waxing, threading, lash lifts & aesthetic care. Book your appointment today!')">
     <meta property="og:image" content="@yield('meta_image', asset('img/Contact.jpeg'))">
     <meta property="og:site_name" content="Jay's Beauty">
+    <meta property="og:locale" content="en_GB">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{{ url()->current() }}">
     <meta name="twitter:title" content="@yield('title', 'Jays Beauty - A World Class Beauty Spa in London')">
-    <meta name="twitter:description" content="@yield('meta_description', 'Jay\'s Beauty is a premier beauty spa in Hounslow, London offering luxury facials, hydra facials, waxing, and beauty treatments.')">
+    <meta name="twitter:description" content="@yield('meta_description', 'Premier beauty spa in Hounslow, London. Expert facials, hydra facials, waxing, threading, lash lifts & aesthetic care. Book your appointment today!')">
     <meta name="twitter:image" content="@yield('meta_image', asset('img/Contact.jpeg'))">
 
-    <!-- JSON-LD Structured Data for Rich Snippets -->
+    <!-- JSON-LD Structured Data for Rich Snippets, Local Business & AI Engines (ARO/GEO) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -56,17 +76,48 @@
           "url": "https://www.jaysbeauty.co.uk/",
           "logo": "{{ asset('img/logo.png') }}",
           "image": "{{ asset('img/Contact.jpeg') }}",
-          "description": "A World Class Beauty Spa in Hounslow, London offering luxury facials, hydra facials, microdermabrasion, waxing, massages, lashes, and semi-permanent makeup.",
-          "telephone": "07399001499",
+          "description": "Premier beauty salon and spa in Hounslow, London specializing in facials, hydra facials, microdermabrasion, waxing, threading, and lash lifts.",
+          "telephone": "+447399001499",
           "email": "info@jaysbeauty.co.uk",
+          "priceRange": "££",
+          "currenciesAccepted": "GBP",
+          "paymentAccepted": "Cash, Credit Card, Debit Card",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Hounslow Market, 281-287 High Street",
+            "streetAddress": "Unit 16, Hounslow Market, 281-287 High Street",
             "addressLocality": "Hounslow",
             "addressRegion": "Greater London",
             "postalCode": "TW3 1EJ",
             "addressCountry": "GB"
           },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 51.4688,
+            "longitude": -0.3622
+          },
+          "hasMap": "https://maps.google.com/?q=Hounslow+Market+London",
+          "areaServed": [
+            { "@type": "City", "name": "Hounslow" },
+            { "@type": "City", "name": "London" },
+            { "@type": "AdministrativeArea", "name": "Greater London" },
+            { "@type": "City", "name": "Isleworth" },
+            { "@type": "City", "name": "Twickenham" },
+            { "@type": "City", "name": "Richmond" }
+          ],
+          "founder": {
+            "@type": "Person",
+            "name": "Jigna Ladwa",
+            "jobTitle": "Lead Beautician & Spa Specialist"
+          },
+          "knowsAbout": [
+            "Hydra Facial Treatments",
+            "Crystal Clear Microdermabrasion",
+            "Micro Needling Collagen Therapy",
+            "Eyelash Lifting and Extensions",
+            "Facial Threading and Waxing",
+            "Full Body Aroma Massage",
+            "Semi-Permanent Makeup"
+          ],
           "openingHoursSpecification": [
             {
               "@type": "OpeningHoursSpecification",
@@ -81,7 +132,11 @@
               "closes": "17:00"
             }
           ],
-          "priceRange": "££"
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=100076831596108",
+            "https://www.instagram.com",
+            "https://www.fresha.com/a/jays-beauty-ladies-only-hounslow-unit-16-hounslow-market-281-287-high-street-hounslow-fyo7at55"
+          ]
         },
         {
           "@type": "WebSite",
