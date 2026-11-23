@@ -118,6 +118,11 @@ a:focus {
 	text-decoration: none
 }
 
+a {
+	text-decoration: none;
+	color: #D0A567
+}
+
 a:hover {
 	text-decoration: none;
 	color: #D0A567
